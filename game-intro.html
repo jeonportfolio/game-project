@@ -138,11 +138,41 @@
             background-position: center;
         }
         #section2 .parallax__item__img {
-            background-image: url(assets/img/images15.jpg);
+            width: 30vw;
+            height: 25vw;
+            background-size: cover;
+            background-position: center;
+            margin-right: -1vw;
         }
+        #section2 .parallax__item__img.i1 {
+            background-image: url(assets/img/turtle_intro.png);
+        }
+        #section2 .parallax__item__img.i2 {
+            background-image: url(assets/img/turtle_intro1.png);
+        }
+        #section2 .parallax__item__img.i3 {
+            background-image: url(assets/img/turtle_intro3.png);
+        }
+
+        /* section3 */
         #section3 .parallax__item__img {
-            background-image: url(assets/img/images03.jpg);
+            width: 30vw;
+            height: 30vw;
+            border-radius: 50%;
+            background-size: cover;
+            background-position: center;
         }
+
+        #section3 .parallax__item__img.i1 {
+            background-image: url(assets/img/space_war.png);
+        }
+        #section3 .parallax__item__img.i2 {
+            background-image: url(assets/img/space_war1.png);
+        }
+        #section3 .parallax__item__img.i3 {
+            background-image: url(assets/img/space_war2.png);
+        }
+
         #section4 .parallax__item__img {
             background-image: url(assets/img/images04.jpg);
         }
@@ -163,11 +193,7 @@
         }
 
         /* option */
-        #section3 .parallax__item__img {
-            width: 100px;
-            height: 100px;
-            border-radius: 50px;
-        }
+       
         #section5 {
             flex-direction: column;
         }
@@ -286,12 +312,9 @@
 
         <section id="section3" class="parallax__item" data-bgcolor="#245922">
             <span class="parallax__item__num">03</span>
-            <div class="parallax__item__img"></div>
-            <div class="parallax__item__img"></div>
-            <div class="parallax__item__img"></div>
-            <div class="parallax__item__img"></div>
-            <div class="parallax__item__img"></div>
-            <div class="parallax__item__img"></div>
+            <div class="parallax__item__img i1"></div>
+            <div class="parallax__item__img i2"></div>
+            <div class="parallax__item__img i3"></div>
         </section>
         <!-- //section3 -->
 
@@ -312,7 +335,7 @@
 
         <section id="section6" class="parallax__item" data-bgcolor="#59243c">
             <span class="parallax__item__num">06</span>
-            <div class="parallax__item__text">section6</div>
+            <div class="parallax__item__text">PLAY!</div>
         </section>
         <!-- //section6 -->
 
@@ -400,7 +423,7 @@
 
       //01 에니메이션
       const ani1 = gsap.timeline(); //순서대로 흘러가게 해준다.
-       ani1.to("#section1 .parallax__item__img", {rotation: 720, scale: 0, borderRadius: 200})
+       ani1.to("#section1 .parallax__item__img", {rotation: 720, scale: 0, borderRadius: 100})
             
                                                                                             
        ScrollTrigger.create({
@@ -411,7 +434,7 @@
             scrub: true,
             pin: true,
             anticipatePin:1, //pin을 자연스럽게 해준다. 
-            markers: true    
+            markers: false   
        });
 
        //02 이미지 = 순차적으로 나오는이미지 
@@ -437,7 +460,7 @@
        ani3.from("#section3 .parallax__item__img", {
            autoAlpha:0,
            y:-100,//위에서 아래로 내려줌 
-           ease:"back.out(4)",// 통통 튀는 느낌 
+           ease:"back.out(6)",// 통통 튀는 느낌 
            //stagger: 0.1 //6개의 값이 하나씩 달라진다. 
             stagger : {
                 amount:3, 
@@ -454,7 +477,7 @@
             scrub: true,
             pin: true,
             anticipatePin:1, //pin을 자연스럽게 해준다. 
-            markers: true    
+            markers: false    
        });
 
        //04. 이미지 축소하기 
