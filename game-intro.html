@@ -174,7 +174,7 @@
         }
 
         #section4 .parallax__item__img {
-            background-image: url(assets/img/images04.jpg);
+            background-image: url(assets/img/Tetris.png);
         }
         #section5 .parallax__item__img {
             background-image: url(assets/img/images05.jpg);
@@ -186,10 +186,10 @@
             background-image: url(assets/img/images07.jpg);
         }
         #section8 .parallax__item__img {
-            background-image: url(assets/img/images08.jpg);
+            background-image: url(assets/img/keyboard.png);
         }
         #section9 .parallax__item__img {
-            background-image: url(assets/img/images09.jpg);
+            background-image: url(assets/img/keyboard.png);
         }
 
         /* option */
@@ -221,7 +221,23 @@
             font-size: 2vw;
             line-height: 1.5;
             text-transform: uppercase;
+            margin-bottom: 40px;
         }
+
+        #section8 .parallax__item__text a{ 
+            padding: 10px;
+            background-color: #ed1414;
+            color: #fff;
+            border-radius: 50px;
+        }
+
+        #section8 .parallax__item__text a:hover{ 
+            background-color: #fff;
+            color: #000;
+        } 
+
+
+
         #section8 .parallax__item__img {
             width: 100px;
             height: 100px;
@@ -232,6 +248,14 @@
             height: 200px;
             border-radius: 50%;
         }
+
+        #section9 .thanks {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 100px;
+        }
+
 
          /* option */
          .parallax__progress progress {
@@ -271,7 +295,7 @@
     <header id="parallax__title">
         <h1>JAVASCRIPT를 활용한 게임만들기</h1>
         <ul>
-            <li class="active"><a href="gsap01.html">거북이의 여행</a></li>
+            <li class="active"><a href="gsap01.html">새끼거북의 모험</a></li>
             <li ><a href="gsap02.html">지구를 지켜라</a></li>
             <li><a href="gsap03.html">테트리스</a></li>
           
@@ -353,9 +377,9 @@
 
         <section id="section8" class="parallax__item">
             <span class="parallax__item__num">08</span>
-            <div class="parallax__item__text t1">section8 title1</div>
-            <div class="parallax__item__text t2">section8 title2</div>
-            <div class="parallax__item__text t3">section8 title3</div>
+            <div class="parallax__item__text t1">새끼거북의 모험 -> <a href="/" target="_blank">바로가기(click)</a></div>
+            <div class="parallax__item__text t2">지구를 지켜라 -> <a href="/" target="_blank">바로가기(click)</a></div>
+            <div class="parallax__item__text t3">테트리스 GAME -> <a href="/" target="_blank">바로가기(click)</a></div>
             <div class="parallax__item__img i1"></div>
         </section>
         <!-- //section8 -->
@@ -363,6 +387,7 @@
         <section id="section9" class="parallax__item">
             <span class="parallax__item__num">09</span>
             <div class="parallax__item__img"></div>
+            <p class="thanks">감사합니다</p>
         </section>
         <!-- //section9 -->
     </main>
@@ -451,7 +476,7 @@
             scrub: true,
             pin: true,
             anticipatePin:1, //pin을 자연스럽게 해준다. 
-            markers: true    
+            markers: false    
        });
 
        //03.이미지가 랜덤으로 도출 
@@ -497,7 +522,7 @@
             scrub: true,
             pin: true,
             anticipatePin:1, 
-            markers: true    
+            markers: false    
        });
 
        
@@ -518,7 +543,7 @@
             scrub: true,
             pin: true,
             anticipatePin:1, 
-            markers: true    
+            markers: false    
        });
 
        //06. 텍스트 확대하기 
@@ -535,7 +560,7 @@
             scrub: true,
             pin: true,
             anticipatePin:1, 
-            markers: true    
+            markers: false    
        });
 
        //07.텍스트 제자리 애니메이션 
@@ -557,7 +582,7 @@
             scrub: true,
             pin: true,
             anticipatePin:1, 
-            markers: true    
+            markers: false    
        });
 
        //08: 텍스트 애니메이션 
@@ -575,25 +600,26 @@
             scrub: true,
             pin: true,
             anticipatePin:1, 
-            markers: true    
+            markers: false    
        });
 
        //09 : 이미지 확대하기 
 
        const ani9 = gsap.timeline();
-        ani9.to ("#section9 .parallax__item__img", {scale: 13})
-            .to ("#section9 .parallax__item__img", {autoAlpha:0})
-           
-       ScrollTrigger.create({
-            animation: ani9,
-            trigger:"#section9",
-            start: "top top",
-            end: "+=6000", 
-            scrub: true,
-            pin: true,
-            anticipatePin:1, 
-            markers: true    
-       });
+                ani9.set("#section9 .parallax__item__img", {autoAlpha: 0, scale: 0}) 
+                    .to("#section9 .parallax__item__img", {autoAlpha: 1, scale: 18}) 
+                    .to("#section9 .parallax__item__img", {autoAlpha: 0}); 
+
+                    ScrollTrigger.create({
+                        animation: ani9,
+                        trigger: "#section9",
+                        start: "top top",
+                        end: "+=6000", 
+                        scrub: true,
+                        pin: true,
+                        anticipatePin: 1, 
+                        markers: false
+        });
 
 
         //섹션별로 변경하기 (data 값으로 변경)
@@ -604,7 +630,7 @@
                 trigger: item,
                 start: "top 50%",
                 end: "bottom 50%",
-                markers: true,
+                markers: false,
 
                 onEnter: () => gsap.to("body", {
                     backgroundColor : color,
